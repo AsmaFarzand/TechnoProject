@@ -1,0 +1,80 @@
+  * {
+
+      font-family: 'Poppins', sans-serif;
+
+  }
+
+  .h-font {
+      font-family: 'Merienda', cursive;
+  }
+
+  .custom-bg {
+      background-color: #2ec1ac;
+
+  }
+
+  .custom-bg:hover {
+      background-color: #279ebc;
+
+  }
+
+  .form-available {
+      margin-top: -50px;
+      z-index: 2;
+      position: relative;
+  }
+
+  /*width*/
+  ::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  /*Track*/
+  ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+  }
+
+  /*Handle*/
+  ::-webkit-scrollbar-thumb {
+      background: #888;
+  }
+
+  /*Handle on hover*/
+  ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+  }
+
+
+
+  .h-line {
+      width: 150px;
+      margin: 0 auto;
+      height: 1.7px;
+  }
+
+  /* @media screen and (max-width: 575px) {
+      .form-available {
+          margin-top: 25px;
+
+          padding: 0 35px;
+      }
+  } */
+
+  div.LoginForm {
+
+      position: relative;
+      /* top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+      width: 400px;
+  }
+
+
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+ 
