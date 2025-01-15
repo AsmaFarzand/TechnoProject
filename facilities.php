@@ -8,7 +8,8 @@ include "connect.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard- Facilities</title>
+	<title> CareWell Hospital</title>
+    <title></title>
     <style>
         :root {
             --teal: #2ec1ac;
@@ -92,14 +93,7 @@ include "connect.php";
                 </div>
             <?php
             }
-            ?>
-           
-            
-                
-            
-            
-          
-            
+            ?>   
         </div>
     </div>
     <?php

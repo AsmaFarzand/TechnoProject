@@ -4,14 +4,14 @@ include "connect.php";
 include "header.php";
 
 
-$Id = $_GET['Room_Id'];
+$id = $_GET['Id'];
    
-    $query = "DELETE FROM room_details where Room_Id = '" . $Id . "'";
+    $query = "DELETE FROM appointment where Id = '" . $id . "'";
     $result = mysqli_query($connect, $query) ;
     if($result)
     {
    
-    header('Location: roombook.php');
+    header('Location: appointment.php');
     }
       
 ?>

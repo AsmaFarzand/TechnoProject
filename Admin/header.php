@@ -15,16 +15,19 @@
                           <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
                      </li> -->
                      <li class="nav-item">
-                         <a class="nav-link text-white"  href="#">Doctors</a>
-                     </li>
-                     <li class="nav-item">
                          <a class="nav-link text-white" href="userquery.php">Users</a>
                      </li>
-                     <li class="nav-item">
+                     <!-- <li class="nav-item">
                          <a class="nav-link text-white" href="settings.php">Settings</a>
-                     </li>
+                     </li> -->
                      <li class="nav-item">
                          <a class="nav-link text-white" href="facilities.php">Facilities</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link text-white" href="doctordetails.php">Doctors Information</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link text-white" href="appointment.php">Appointments</a>
                      </li>
                  </ul>
              </div>

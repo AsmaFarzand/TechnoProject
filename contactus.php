@@ -93,7 +93,7 @@ include "connect.php";
                     <h5 class="mt-4">Email</h5>
                     <a href="mailto: asmafarzand75@gmail.com"
                         class="d-inline-block mb-2 text-decoration-none text-dark">
-                        <i class="bi bi-envelope"></i>asmafarzand75@gmail.com
+                        <i class="bi bi-envelope"></i>asmafarzand75@gmail.com<br>
                         <i class="bi bi-envelope"></i>javeriazubair26@gmail.com
                     </a>
                     <h5 class="mt-4">Follow Us </h5>

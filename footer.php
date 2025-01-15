@@ -77,8 +77,6 @@ include "links.php";
   </div>
 </div>
 
-<h6 class="text-center bg-dark text-white p-4">Developed by Asma Farzand and Javeria Zubair</h6>
-
-  
+<h6 class="text-center bg-dark text-white p-4">Developed by Asma Farzand and Javeria Zubair</h6> 
 </body>
 </html>

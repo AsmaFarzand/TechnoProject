@@ -39,9 +39,7 @@ include "links.php";
         </li>
     </ul>
 </div>
-
-        </div>
-    </nav>
+</div>
+</nav>
 </body>
-
 </html>

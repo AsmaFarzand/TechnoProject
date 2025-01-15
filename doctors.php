@@ -1,121 +1,15 @@
 <?php
 include "links.php";
+include "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CareWell Hospital</title>
-  <style>
-    .h-font {
-    font-family: 'Merienda', cursive;
-}
-
-.responsive-cell-block {
-    min-height: 75px;
-}
-
-.text-blk {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    line-height: 25px;
-}
-
-.responsive-container-block {
-    min-height: 75px;
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    justify-content: space-evenly;
-}
-
-.container {
-    max-width: 1380px;
-    margin-top: 60px;
-    margin-right: auto;
-    margin-bottom: 60px;
-    margin-left: auto;
-    padding-top: 0px;
-    padding-right: 30px;
-    padding-bottom: 0px;
-    padding-left: 30px;
-}
-
-.card {
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    padding-right: 25px;
-    padding-bottom: 30px;
-    padding-left: 25px;
-}
-
-.card-container {
-    width: 280px;
-    margin-top: 0px;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    margin-left: 10px;
-}
-
-.name {
-    margin-top: 20px;
-    margin-right: 0px;
-    margin-bottom: 5px;
-    margin-left: 0px;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.position {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    margin-left: 0px;
-}
-
-.social-icons {
-    width: 70px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.team-image-wrapper {
-    clip-path: circle(50% at 50% 50%);
-    width: 130px;
-    height: 130px;
-}
-
-.team-member-image {
-    max-width: 100%;
-}
-
-@media (max-width: 500px) {
-    .card-container {
-        width: 100%;
-        margin-top: 0px;
-        margin-right: 0px;
-        margin-bottom: 25px;
-        margin-left: 0px;
-    }
-}
-:root {
-            --teal: #2ec1ac;
-            --teal_hover: #279e8c;
-        }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareWell Hospital</title>
+    <style>
         * {
             font-family: 'Poppins', sans-serif;
         }
@@ -125,27 +19,52 @@ include "links.php";
         }
 
         .custom-bg {
-            background-color: var(--teal);
-            border: 1px solid var(--teal);
-
+            background-color: #2ec1ac;
         }
 
         .custom-bg:hover {
-            background-color: var(--teal_hover);
-            border-color: var(--teal_hover);
-
+            background-color: #279ebc;
         }
 
-        .form-available {
-            margin-top: -50px;
-            z-index: 2;
-            position: relative;
+        .card img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
         }
 
-        .h-line {
-            width: 150px;
-            margin: 0 auto;
-            height: 1.7px;
+        .doctor-details {
+            padding-left: 20px;
+        }
+
+        .doctor-details h5 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .doctor-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .doctor-row div {
+            flex: 1;
+            text-align: left;
+        }
+
+        .doctor-row span {
+            font-size: 14px;
+            color: #555;
+            background-color: #f8f9fa;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .description {
+            margin-top: 10px;
         }
 
         @media screen and (max-width: 575px) {
@@ -153,197 +72,147 @@ include "links.php";
                 margin-top: 25px;
                 padding: 0 35px;
             }
+
+            .doctor-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .doctor-row div {
+                margin-bottom: 5px;
+            }
         }
-        .h-font {
-    font-family: 'Merienda', cursive;}
+
+        .search-form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-form input {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .search-form button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #2ec1ac;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #279ebc;
+        }
     </style>
 </head>
 
 <body class="bg-light">
-  <?php
-  include "nav.php"
-  ?>
-  <h2 class=" mt-5 pt-4 mb-4 text-center fw-bold h-font"> OUR DOCTORS </h2>
-  <div class="h-line bg-dark"></div>
-  
-  <div class="responsive-container-block container">
-    <div class="responsive-container-block">
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d1.jpg">
-          </div>
-          <p class="text-blk name">
-            Kim SeoHyun
-          </p>
-          <p class="text-blk position">
-           Dermatologist
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
+    <?php include "nav.php"; ?>
 
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d2.jpg" style="width: 100%;">
-          </div>
-          <p class="text-blk name">
-            Kim Seokjin
-          </p>
-          <p class="text-blk position">
-              General Surgeon
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d3.jpg">
-          </div>
-          <p class="text-blk name">
-            Kim Sejeong
-          </p>
-          <p class="text-blk position">
-          Gynecologist
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d4.webp">
-          </div>
-          <p class="text-blk name">
-            Cha Enuwo
-          </p>
-          <p class="text-blk position">
-            Oncologist
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d5.webp">
-          </div>
-          <p class="text-blk name">
-            Hwang In Youp
-          </p>
-          <p class="text-blk position">
-           Neurologist
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d6.webp">
-          </div>
-          <p class="text-blk name">
-            Moon GaYoung
-          </p>
-          <p class="text-blk position">
-            Cardiologist
-          </p>
-
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d7.webp">
-          </div>
-          <p class="text-blk name">
-            Song Joonki
-          </p>
-          <p class="text-blk position">
-          Anesthesiologist
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-        <div class="card">
-          <div class="team-image-wrapper">
-            <img class="team-member-image" src="images/d8.webp">
-          </div>
-          <p class="text-blk name">
-            Kim SeonhO
-          </p>
-          <p class="text-blk position">
-          Radiologists
-          </p>
-          <div class="social-icons">
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank">
-              <i class="bi bi-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="my-5 px-4">
+        <h2 class="fw-bold h-font text-center">OUR DOCTORS</h2>
+        <div class="h-line bg-dark"></div>
     </div>
-  </div>
-  <?php
-  include "footer.php";
-  ?>
 
+    <div class="container">
+        <div class="search-form">
+            <form method="POST" action="">
+                <input type="text" name="doctor_name" placeholder="Search doctor by name" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 px-4">
+                <?php
+                $doctor_name = isset($_POST['doctor_name']) ? $_POST['doctor_name'] : '';
+                $query = $doctor_name != '' ? "SELECT * FROM doctors WHERE Name LIKE '%$doctor_name%'" : "SELECT * FROM doctors";
+                $res = mysqli_query($connect, $query);
+
+                while ($row = mysqli_fetch_assoc($res)) {
+                ?>
+                    <div class="card mb-3 border-0 shadow">
+                        <div class="row g-0 p-3 align-items-center">
+                            <div class="col-md-3 mb-lg-0 mb-md-0 mb-3">
+                                <img src="Admin/assets/<?php echo $row["Picture"]; ?>" class="img-fluid rounded">
+                            </div>
+                            <div class="col-md-7 doctor-details">
+                                <h5><?php echo $row["Name"]; ?></h5>
+                                <div class="doctor-row">
+                                    <div>
+                                        <h6>Specialization:</h6>
+                                        <span><?php echo $row["Specialization"]; ?></span>
+                                    </div>
+                                    <div>
+                                        <h6>Availability:</h6>
+                                        <span><?php echo $row["Availablity"]; ?></span>
+                                    </div>
+                                </div>
+                                <div class="doctor-row">
+                                    <div>
+                                        <h6>Working Hours:</h6>
+                                        <span><?php echo $row["Workinghours"]; ?></span>
+                                    </div>
+                                    <div>
+                                        <h6>Website was last Updated:</h6>
+                                        <!-- This is where we will display the formatted timestamp -->
+                                        <span class="last-updated" data-time="<?php echo $row["Lastupdated"]; ?>"></span>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <h6>Description:</h6>
+                                    <span><?php echo $row["Description"]; ?></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <a href="appointment.php" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+
+    <?php include "footer.php"; ?>
+
+    <script>
+        // Function to convert timestamp to "time ago" format
+        function timeAgo(time) {
+            const now = new Date();
+            const then = new Date(time);
+            const seconds = Math.floor((now - then) / 1000);
+            const intervals = [
+                { label: 'second', seconds: 1 },
+                { label: 'minute', seconds: 60 },
+                { label: 'hour', seconds: 3600 },
+                { label: 'day', seconds: 86400 },
+                { label: 'week', seconds: 604800 },
+                { label: 'month', seconds: 2592000 },
+                { label: 'year', seconds: 31536000 }
+            ];
+
+            for (let i = intervals.length - 1; i >= 0; i--) {
+                const interval = intervals[i];
+                const intervalValue = Math.floor(seconds / interval.seconds);
+                if (intervalValue >= 1) {
+                    return intervalValue + ' ' + interval.label + (intervalValue > 1 ? 's' : '') + ' ago';
+                }
+            }
+            return 'just now'; // For very recent timestamps
+        }
+
+        // Apply time ago formatting to each Lastupdated field
+        document.querySelectorAll('.last-updated').forEach(function (element) {
+            const time = element.getAttribute('data-time');
+            element.textContent = timeAgo(time);
+        });
+    </script>
 </body>
 
 </html>
